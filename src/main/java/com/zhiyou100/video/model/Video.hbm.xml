@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.zhiyou100.video.model">
+    	<class table="video" name="Video">
+    		<id name="id">
+    		<!-- 
+    			主键生成策略
+    		 -->
+    			<generator class="native"></generator>
+    		</id>
+    		<property name="video_title"></property>
+    		<property name="speaker_id"></property>
+    		<property name="course_id"></property>
+   
+    		<property name="video_length"></property>
+    		<property name="video_image_url"></property>
+    		<property name="video_url"></property>
+    		<property name="video_descr"></property>
+    		<property name="insert_time"></property>
+    		<property name="update_time"></property>
+    		<property name="video_play_times"></property>
+    		<!-- <many-to-one name="speaker" class="com.zhiyou100.video.model.Speaker" column="speaker_id"></many-to-one>
+    		<many-to-one name="course" class="com.zhiyou100.video.model.Course" column="course_id"></many-to-one>
+    		 --> 
+    	<!-- 	<property name="speaker_name"></property>
+    		<property name="course_name"></property> -->
+    	</class>
+    </hibernate-mapping>

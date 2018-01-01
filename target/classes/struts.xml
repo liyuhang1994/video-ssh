@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<!-- 	<constant name="struts.devMode" value="true"></constant>
+ -->	
+	<package name="adminLogin" namespace="/admin" extends="struts-default">
+		<action name="admin_*" method="{1}" class="com.zhiyou100.video.web.action.AdminLoginAction">
+			<result name="tzLogin">/WEB-INF/view/admin/login.jsp</result>
+			<result name="loginSuccess">/WEB-INF/view/admin/admin.jsp</result>
+			<result name="ajaxSuccess">r</result>
+		</action>
+	</package>
+	<package name="adminVideo" namespace="/admin/video" extends="struts-default">
+		<action name="video_*" method="{1}" class="com.zhiyou100.video.web.action.AdminVideoAction">
+			<result name="videoList">/WEB-INF/view/admin/video/videoList.jsp</result>
+			<result name="videoAddTZ">/WEB-INF/view/admin/video/videoAdd.jsp</result>
+			<result name="videoEditTZ">/WEB-INF/view/admin/video/videoEdit.jsp</result>
+			<result name="videoEdit" type="redirectAction">
+				<param name="actionName">video_videoList</param>
+				<param name="namespace">/admin/video</param>
+			</result>
+			<result name="videoAdd" type="redirectAction">
+				<param name="actionName">video_videoList</param>
+				<param name="namespace">/admin/video</param>
+			</result>
+			<result name="videoDelete" type="redirectAction">
+				<param name="actionName">video_videoList</param>
+				<param name="namespace">/admin/video</param>
+			</result>
+			<result name="videoDeleteAll" type="redirectAction">
+				<param name="actionName">video_videoList</param>
+				<param name="namespace">/admin/video</param>
+			</result>
+		</action>
+	</package>
+	<package name="adminCourse" namespace="/admin/course" extends="struts-default">
+		<action name="courseList" method="courseList" class="com.zhiyou100.video.web.action.AdminCourseAction">
+			<result name="courseList">/WEB-INF/view/admin/course/courseList.jsp</result>
+		</action>
+		<action name="addCourseTZ" method="addCourseTZ" class="com.zhiyou100.video.web.action.AdminCourseAction">
+			<result name="addCourseTZ">/WEB-INF/view/admin/course/courseAdd.jsp</result>
+		</action>
+		<action name="addCourse" method="addCourse" class="com.zhiyou100.video.web.action.AdminCourseAction">
+			<result name="addCourse" type="redirectAction">
+				<param name="actionName">courseList</param>
+				<param name="namespace">/admin/course</param>
+			</result>
+		</action>
+		<action name="courseDelete" method="courseDelete" class="com.zhiyou100.video.web.action.AdminCourseAction">
+			<result name="courseDelete" type="redirectAction">
+				<param name="actionName">courseList</param>
+				<param name="namespace">/admin/course</param>
+			</result>
+		</action>
+		<action name="courseEditTZ" method="courseEditTZ" class="com.zhiyou100.video.web.action.AdminCourseAction">
+			<result name="courseEditTZ">/WEB-INF/view/admin/course/courseEdit.jsp</result>
+		</action>
+		<action name="courseEdit" method="courseEdit" class="com.zhiyou100.video.web.action.AdminCourseAction">
+			<result name="courseEdit" type="redirectAction">
+				<param name="actionName">courseList</param>
+				<param name="namespace">/admin/course</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="adminSpeaker" namespace="/admin/speaker" extends="struts-default">
+		<action name="speaker_*" method="{1}" class="com.zhiyou100.video.web.action.AdminSpeakerAction">
+			<result name="speakerList">/WEB-INF/view/admin/speaker/speakerList.jsp</result>
+			<result name="speakerAddTZ">/WEB-INF/view/admin/speaker/speakerAdd.jsp</result>
+			<result name="speakerEditTZ">/WEB-INF/view/admin/speaker/speakerEdit.jsp</result>
+			<result name="speakerDelete" type="redirectAction">
+				<param name="actionName">speaker_speakerList</param>
+				<param name="namespace">/admin/speaker</param>
+			</result>
+			<result name="speakerAdd" type="redirectAction">
+				<param name="actionName">speaker_speakerList</param>
+				<param name="namespace">/admin/speaker</param>
+			</result>
+			<result name="speakerEdit" type="redirectAction">
+				<param name="actionName">speaker_speakerList</param>
+				<param name="namespace">/admin/speaker</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="adminStatistics" namespace="/admin/statistics" extends="struts-default">
+		<action name="statisticsList" method="statisticsList" class="com.zhiyou100.video.web.action.AdminStatisticsAction">
+			<result name="statisticsList">/WEB-INF/view/admin/statistics/statisticsList.jsp</result>
+		</action>
+	</package>
+
+
+	<!-- 前台 -->
+	<package name="frontUser" namespace="/front/user" extends="json-default">
+		<action name="userRegister" method="userRegister" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userRegister" type="json">
+				<param name="root">re</param>
+			</result>
+		</action>
+		<action name="userLogin" method="userLogin" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userLogin" type="json">
+				<param name="root">re</param>
+			</result>
+		</action>
+		<action name="sendCaptcha" method="sendCaptcha" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="sendCaptcha" type="json">
+				<param name="root">re</param>
+			</result>
+		</action>
+		<action name="userIndex" method="userIndex" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userIndex">/WEB-INF/view/front/user/index.jsp</result>
+		</action>
+		<action name="userProfileTZ" method="userProfileTZ" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userProfileTZ">/WEB-INF/view/front/user/profile.jsp</result>
+		</action>
+		<action name="userPasswordTZ" method="userPasswordTZ" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userPasswordTZ">/WEB-INF/view/front/user/password.jsp</result>
+		</action>
+		<action name="userAvatarTZ" method="userAvatarTZ" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userAvatarTZ">/WEB-INF/view/front/user/avatar.jsp</result>
+		</action>
+		<action name="index" method="index" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="index">/index.jsp</result>
+		</action>
+		<action name="forgetpwdTZ" method="forgetpwdTZ" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="forgetpwdTZ">/WEB-INF/view/front/user/forget_pwd.jsp</result>
+		</action>
+		<action name="forgetpwd" method="forgetpwd" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="forgetpwd">/WEB-INF/view/front/user/reset_pwd.jsp</result>
+		</action>
+		<action name="resetpwd" method="resetpwd" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="resetpwd">/index.jsp</result>
+		</action>
+		<action name="userProfile" method="userProfile" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userProfile" type="redirectAction">
+				<param name="actionName" >userIndex</param>
+				<param name="namespace">/front/user</param>
+			</result>
+		</action>
+		<action name="userPassword" method="userPassword" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userPassword" type="redirectAction">
+				<param name="actionName" >userPasswordTZ</param>
+				<param name="namespace">/front/user</param>
+			</result>
+		</action>
+		<action name="userAvatar" method="userAvatar" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userAvatar" type="redirectAction">
+				<param name="actionName" >userIndex</param>
+				<param name="namespace">/front/user</param>
+			</result>
+		</action>
+		<action name="userLogout" method="userLogout" class="com.zhiyou100.video.web.action.FrontUserAction">
+			<result name="userLogout" type="redirectAction">
+				<param name="actionName" >index</param>
+				<param name="namespace">/front/user</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="frontCourse" namespace="/front/course" extends="struts-default">
+		<action name="courseIndex" method="courseIndex" class="com.zhiyou100.video.web.action.FrontCourseAction">
+			<result name="courseIndex">/WEB-INF/view/front/course/index.jsp</result>
+		</action>
+	</package>
+	<package name="frontVideo" namespace="/front/video" extends="struts-default">
+		<action name="videoIndex" method="videoIndex" class="com.zhiyou100.video.web.action.FrontVideoAction">
+			<result name="videoIndex">/WEB-INF/view/front/video/index.jsp</result>
+		</action>
+	</package>
+
+</struts>

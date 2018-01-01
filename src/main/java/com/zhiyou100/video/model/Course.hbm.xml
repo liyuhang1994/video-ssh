@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    <class name="com.zhiyou100.video.model.Course" table="course">
+    <id name="id">
+    <!-- 主键生成策略 -->
+    <generator class="native"></generator>
+    </id>
+    <property name="course_name"></property>
+    <property name="course_descr"></property>
+    <property name="insert_time"></property>
+    <property name="update_time"></property>
+    <many-to-one name="subject" class="com.zhiyou100.video.model.Subject" column="subject_id"></many-to-one>
+    <!-- <set name="videos">
+    	<key column="course_id"></key>
+    	<one-to-many class="com.zhiyou100.video.model.Video"/>
+    </set> -->
+    </class>
+    </hibernate-mapping>
